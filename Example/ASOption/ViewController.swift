@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import ASOption
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var alertButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,5 +22,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func alert(_ sender: Any) {
+        ASOption.show(alertButton, "Alert!", true)
+    }
 }
 

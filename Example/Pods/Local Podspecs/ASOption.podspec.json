@@ -1,0 +1,22 @@
+{
+  "name": "ASOption",
+  "version": "0.1.0",
+  "summary": "A short description of ASOption.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Amit Mondol/ASOption",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Amit Mondol": "amit.mondol@bjitgroup.com"
+  },
+  "source": {
+    "git": "https://github.com/Amit Mondol/ASOption.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "ASOption/Classes/**/*"
+}

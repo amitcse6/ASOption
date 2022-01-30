@@ -1,0 +1,6 @@
+framework module ASOption {
+  umbrella header "ASOption-umbrella.h"
+
+  export *
+  module * { export * }
+}

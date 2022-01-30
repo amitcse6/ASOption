@@ -1,0 +1,16 @@
+PODS:
+  - ASOption (0.1.0)
+
+DEPENDENCIES:
+  - ASOption (from `../`)
+
+EXTERNAL SOURCES:
+  ASOption:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ASOption: 05409c66711679602d71bc4e9dffec04fde69fc5
+
+PODFILE CHECKSUM: e3e90a122f386d667bf3be1aa99442e5d780c58d
+
+COCOAPODS: 1.11.2
