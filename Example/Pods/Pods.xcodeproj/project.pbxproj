@@ -14,6 +14,8 @@
 		5F81A210DDC8B20951F5063217F6BA3C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		6A70A5BAF225A7868981A278DDD7EA06 /* ASOption-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E71C502E2F5E786A47C4BE6DAC43A /* ASOption-dummy.m */; };
 		7920384B71ACF84A1C477A6E1ACF64F4 /* Pods-ASOption_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FBF66704A42B8039C38E4B9268315B /* Pods-ASOption_Example-dummy.m */; };
+		8950474127A7DF19000C616F /* ASOptionMesage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8950473F27A7DF19000C616F /* ASOptionMesage.swift */; };
+		8950474227A7DF19000C616F /* ASOptionMesageChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8950474027A7DF19000C616F /* ASOptionMesageChildView.swift */; };
 		89717C2C27A6880E00265F8C /* ASOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89717C2927A6880E00265F8C /* ASOption.swift */; };
 		89717C2D27A6880E00265F8C /* ASOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89717C2A27A6880E00265F8C /* ASOptionView.swift */; };
 		89717C2E27A6880E00265F8C /* ASOptionMesageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89717C2B27A6880E00265F8C /* ASOptionMesageView.swift */; };
@@ -59,6 +61,8 @@
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		7433142459BF98937F3DB93AD4F472D0 /* ASOption.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ASOption.debug.xcconfig; sourceTree = "<group>"; };
 		874AB0D25AA17804625A644CB243B60B /* Pods-ASOption_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ASOption_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		8950473F27A7DF19000C616F /* ASOptionMesage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASOptionMesage.swift; sourceTree = "<group>"; };
+		8950474027A7DF19000C616F /* ASOptionMesageChildView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASOptionMesageChildView.swift; sourceTree = "<group>"; };
 		89717C2927A6880E00265F8C /* ASOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASOption.swift; sourceTree = "<group>"; };
 		89717C2A27A6880E00265F8C /* ASOptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASOptionView.swift; sourceTree = "<group>"; };
 		89717C2B27A6880E00265F8C /* ASOptionMesageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASOptionMesageView.swift; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 		89717C2827A6880E00265F8C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				8950473F27A7DF19000C616F /* ASOptionMesage.swift */,
+				8950474027A7DF19000C616F /* ASOptionMesageChildView.swift */,
 				89717C2927A6880E00265F8C /* ASOption.swift */,
 				89717C2A27A6880E00265F8C /* ASOptionView.swift */,
 				89717C2B27A6880E00265F8C /* ASOptionMesageView.swift */,
@@ -381,10 +387,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8950474227A7DF19000C616F /* ASOptionMesageChildView.swift in Sources */,
 				89717C2C27A6880E00265F8C /* ASOption.swift in Sources */,
 				89717C2E27A6880E00265F8C /* ASOptionMesageView.swift in Sources */,
 				89717C2D27A6880E00265F8C /* ASOptionView.swift in Sources */,
 				6A70A5BAF225A7868981A278DDD7EA06 /* ASOption-dummy.m in Sources */,
+				8950474127A7DF19000C616F /* ASOptionMesage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

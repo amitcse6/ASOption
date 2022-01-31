@@ -9,7 +9,6 @@ import UIKit
 
 public class ASOption: NSObject {
     static var sharedManager: ASOption?
-    
     var optionView: ASOptionView? = nil
     
     @discardableResult
@@ -23,10 +22,10 @@ public class ASOption: NSObject {
     private override init() {
     }
     
-    func load(_ anchor: UIView?, _ message: String?, _ animation: Bool?) {
-        if let anchor = anchor, let message = message, let viewController = ASOption.topMostVC {
+    func load(_ anchor: UIView?, _ messages: [ASOptionMesage]?, _ isError: Bool, _ animation: Bool?, _ paddingPoint: CGPoint?) {
+        if let anchor = anchor, let messages = messages, let viewController = ASOption.topMostVC {
             remove()
-            let optionView = ASOptionView(anchor, message)
+            let optionView = ASOptionView(anchor, messages, isError, paddingPoint)
             viewController.view.addSubview(optionView)
             optionView.translatesAutoresizingMaskIntoConstraints = false
             optionView.topAnchor.constraint(equalTo: viewController.view.topAnchor).isActive = true
@@ -69,14 +68,14 @@ public class ASOption: NSObject {
         self.optionView?.layer.removeAllAnimations()
         self.optionView?.layer.removeAllAnimations()
         self.optionView?.layoutIfNeeded()
-
+        
     }
     
     func removeAllAnimationsFromMessageView(){
         self.optionView?.mesageView?.layer.removeAllAnimations()
         self.optionView?.mesageView?.layer.removeAllAnimations()
         self.optionView?.mesageView?.layoutIfNeeded()
-
+        
     }
     
     private static var topMostVC: UIViewController? {
@@ -90,8 +89,28 @@ public class ASOption: NSObject {
         return presentedVC
     }
     
-    public static func show(_ anchor: UIView?, _ message: String?, _ animation: Bool? = false) {
-        ASOption.shared()?.load(anchor, message, animation ?? false)
+   
+    
+    public static func show(_ anchor: UIView?, _ message: String?, _ isError: Bool? = false, _ animation: Bool? = false, _ paddingPoint: CGPoint? = CGPoint.zero) {
+        if let message = message {
+            ASOption.shared()?.load(anchor, [ASOptionMesage("", message)], isError ?? false, animation ?? false, paddingPoint)
+        }
+    }
+    
+    public static func show(_ anchor: UIView?, _ messages: [String]?, _ isError: Bool? = false, _ sl: Bool? = true, _ animation: Bool? = false, _ paddingPoint: CGPoint? = CGPoint.zero) {
+        if let messages = messages {
+            let messagesNew: [ASOptionMesage] = messages.enumerated().map { (index, item) in
+                if let sl = sl, sl {
+                    return ASOptionMesage("\(index)", item)
+                }
+                return ASOptionMesage("", item)
+            }
+            ASOption.shared()?.load(anchor, messagesNew, isError ?? false, animation ?? false, paddingPoint)
+        }
+    }
+
+    public static func show(_ anchor: UIView?, _ messages: [ASOptionMesage]?, _ isError: Bool? = false, _ animation: Bool? = false, _ paddingPoint: CGPoint? = CGPoint.zero) {
+        ASOption.shared()?.load(anchor, messages, isError ?? false, animation ?? false, paddingPoint)
     }
     
     public static func remove() {

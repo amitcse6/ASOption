@@ -22,8 +22,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func alert(_ sender: Any) {
-        ASOption.show(alertButton, "Alert!", true)
+    @IBAction func alert(_ sender: UIButton) {
+        ASOption.show(sender, [ASOptionMesage("", "Alert!")], true, true, CGPoint(x: 10, y: 10))
     }
 }
 
