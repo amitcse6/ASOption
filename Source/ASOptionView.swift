@@ -14,6 +14,7 @@ public class ASOptionView: UIView {
     var mesageView: ASOptionMesageView?
     var isError: Bool?
     var paddingPoint: CGPoint?
+    var props: ASOProps?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,13 +26,14 @@ public class ASOptionView: UIView {
         initialize()
     }
     
-    init(_ anchor: UIView, _ messages: [ASOptionMesage]?, _ isError: Bool, _ paddingPoint: CGPoint?) {
+    init(_ anchor: UIView, _ messages: [ASOptionMesage]?, _ isError: Bool, _ paddingPoint: CGPoint?, _ props: ASOProps?) {
         super.init(frame: CGRect.zero)
         self.globalPoint = anchor.superview?.convert(anchor.frame.origin, to: nil) ?? CGPoint.zero
         self.anchorSize = anchor.bounds.size
         self.messages = messages
         self.isError = isError
         self.paddingPoint = paddingPoint
+        self.props = props
         initialize()
     }
     
@@ -42,7 +44,7 @@ public class ASOptionView: UIView {
             point.x += paddingPoint.x
             point.y += paddingPoint.y
         }
-        self.mesageView = ASOptionMesageView(self.messages, self.isError)
+        self.mesageView = ASOptionMesageView(self.messages, self.isError, self.props)
         self.addSubview(mesageView.unsafelyUnwrapped)
         self.mesageView?.translatesAutoresizingMaskIntoConstraints = false
         self.mesageView?.leftAnchor.constraint(greaterThanOrEqualTo: self.leftAnchor).isActive = true

@@ -17,9 +17,9 @@ class ASOptionMesageView: UIView {
     var messages: [ASOptionMesage]?
     var textAlignment: NSTextAlignment?
     var borderWidth: CGFloat = 1
-    var borderColor: UIColor = .black
     var cornerRadius: CGFloat = 8
     var isError: Bool?
+    var props: ASOProps?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,23 +31,25 @@ class ASOptionMesageView: UIView {
         initialize()
     }
     
-    init(_ messages: [ASOptionMesage]?, _ isError: Bool?) {
+    init(_ messages: [ASOptionMesage]?, _ isError: Bool?, _ props: ASOProps?) {
         super.init(frame: CGRect.zero)
         self.messages = messages
         self.isError = isError
+        self.props = props
         initialize()
     }
     
     func initialize() {
         backgroundColor = (isError != nil && isError! == false) ?
-        UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1) :
-        UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1)
+        ((props?.normalBackColor != nil) ? props?.normalBackColor :  UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)) :
+        ((props?.errorBackColor != nil) ? props?.errorBackColor :  UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1))
         
-        borderColor = (isError != nil && isError! == false) ? .black : .red
         
         layer.borderWidth = borderWidth
         layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.cgColor
+        layer.borderColor =  (isError != nil && isError! == false) ?
+        ((props?.normalBorderColor != nil) ? props?.normalBorderColor?.cgColor :  backgroundColor?.cgColor) :
+        ((props?.errorBorderColor != nil) ? props?.errorBorderColor?.cgColor :  backgroundColor?.cgColor)
         
         stackView = UIStackView()
         stackView?.axis  = .vertical
@@ -62,7 +64,7 @@ class ASOptionMesageView: UIView {
         stackView?.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
         
         arrowView = UIView()
-        arrowView?.backgroundColor =  (isError != nil && isError! == false) ? .black : .red
+        arrowView?.backgroundColor =  backgroundColor
         self.addSubview(arrowView.unsafelyUnwrapped)
         arrowView?.translatesAutoresizingMaskIntoConstraints = false
         arrowView?.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -10).isActive = true
@@ -70,7 +72,7 @@ class ASOptionMesageView: UIView {
         arrowView?.widthAnchor.constraint(equalToConstant: 10).isActive = true
         arrowView?.heightAnchor.constraint(equalToConstant: 10).isActive = true
         arrowView?.transform = CGAffineTransform(rotationAngle: -45 * CGFloat(Double.pi)/180);
-            
+        
         let gesture = ASOptionGestureRecognizer(target: self, action: #selector(onTap))
         gesture.numberOfTapsRequired = 1
         self.addGestureRecognizer(gesture)
@@ -84,8 +86,13 @@ class ASOptionMesageView: UIView {
     
     func addView() {
         if let messages = messages {
+            let textColor = (isError != nil && isError! == false) ?
+            ((props?.normalForgColor != nil) ? props?.normalForgColor :  .white) :
+            ((props?.errorForgColor != nil) ? props?.errorForgColor :  .white)
             for (_, message) in messages.enumerated() {
                 let messageChildView = ASOptionMesageChildView(message.sl, message.message)
+                messageChildView.slLabel?.textColor = textColor
+                messageChildView.messageLabel?.textColor = textColor
                 stackView?.addArrangedSubview(messageChildView)
             }
         }

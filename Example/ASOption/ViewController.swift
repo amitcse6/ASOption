@@ -10,20 +10,20 @@ import UIKit
 import ASOption
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var alertButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func alert(_ sender: UIButton) {
-        ASOption.show(sender, [ASOptionMesage("", "Alert!")], true, true, CGPoint(x: 10, y: 10))
+        ASOption.show(sender, [ASOptionMesage("", "Alert!")], false, true, CGPoint(x: 10, y: 10), ASOProps(.black, .red))
     }
 }
 
