@@ -92,7 +92,9 @@ class ASOptionMesageView: UIView {
             for (_, message) in messages.enumerated() {
                 let messageChildView = ASOptionMesageChildView(message.sl, message.message)
                 messageChildView.slLabel?.textColor = textColor
+                messageChildView.slLabel?.font = props?.font ?? messageChildView.slLabel?.font
                 messageChildView.messageLabel?.textColor = textColor
+                messageChildView.messageLabel?.font = props?.font ?? messageChildView.messageLabel?.font
                 stackView?.addArrangedSubview(messageChildView)
             }
         }

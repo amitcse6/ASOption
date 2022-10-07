@@ -15,18 +15,26 @@ public class ASOProps {
     var errorBackColor: UIColor?
     var errorForgColor: UIColor?
     var errorBorderColor: UIColor?
+    var font: UIFont?
     
     public init(_ normalBackColor: UIColor?, _ errorBackColor: UIColor?) {
         self.normalBackColor = normalBackColor
         self.errorBackColor = errorBackColor
     }
     
-    public init(_ normalBackColor: UIColor?, _ normalForgColor: UIColor?, _ errorBackColor: UIColor?, _ errorForgColor: UIColor?, _ normalBorderColor: UIColor?, _ errorBorderColor: UIColor?) {
+    public init(_ normalBackColor: UIColor?, _ errorBackColor: UIColor?, _ font: UIFont? = nil) {
+        self.normalBackColor = normalBackColor
+        self.errorBackColor = errorBackColor
+        self.font = font
+    }
+    
+    public init(_ normalBackColor: UIColor?, _ normalForgColor: UIColor?, _ errorBackColor: UIColor?, _ errorForgColor: UIColor?, _ normalBorderColor: UIColor?, _ errorBorderColor: UIColor?, _ font: UIFont? = nil) {
         self.normalBackColor = normalBackColor
         self.normalForgColor = normalForgColor
         self.errorBackColor = errorBackColor
         self.errorForgColor = errorForgColor
         self.normalBorderColor = normalBorderColor
         self.errorBorderColor = errorBorderColor
+        self.font = font
     }
 }

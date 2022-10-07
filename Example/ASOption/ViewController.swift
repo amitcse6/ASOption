@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func alert(_ sender: UIButton) {
-        ASOption.show(sender, [ASOptionMesage("", "Alert!")], false, true, CGPoint(x: 10, y: 10), ASOProps(.black, .red))
+        ASOption.show(sender, [ASOptionMesage("", "Alert!")], false, true, CGPoint(x: 10, y: 10), ASOProps(.black, .red, UIFont.systemFont(ofSize: 15)))
     }
 }
 
